@@ -350,7 +350,7 @@ function load_country(country) {
 	if (!country) {
 		return;
 	}
-	$.getJSON("/js/attacks.json", function(json) {
+	$.getJSON("./js/attacks.json", function(json) {
 		attacks = json[country.toUpperCase()];
 		mx = 0;
 		for (var key in attacks) {
