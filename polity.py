@@ -1,9 +1,10 @@
 
 import pandas as pd
+from database import data, polity_data
 
 def get_polity(df):
     try:
-        vals = polity.loc[(polity['scode']==df['country_code']) & (polity['year']==df['iyear'])]['polity'].values
+        vals = polity_data.loc[(polity_data['scode']==df['country_code']) & (polity_data['year']==df['iyear'])]['polity'].values
     except Exception as e:
         print(str(e))
         print(df)
@@ -19,8 +20,6 @@ def get_polity(df):
 
 if __name__=="__main__":
 	count = 0
-	d = pd.read_csv('gtd98_now.csv')
-	polity = pd.read_csv('p4v2015.csv')
-	d['polity'] = d.apply(get_polity, axis=1)
+	data['polity'] = data.apply(get_polity, axis=1)
 
 
