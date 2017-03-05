@@ -531,12 +531,12 @@ function getCountryLocation(country) {
 }
 
 var map;
-var selectedCountry = 'US'
+var selectedCountry = 'US';
 var selectedData = undefined;
 var bubbles = [];
 var arcs = [];
 
-function createMap() {
+function createAttacksMap() {
 	data = {}
 	if (selectedData) {
 		for (var key in selectedData) {
@@ -547,10 +547,9 @@ function createMap() {
 			}
 		}
 	}
-	console.log(data);
 
 	map = new Datamap({
-		element: document.getElementById('container'),
+		element: document.getElementById('attacks-container'),
 		projection: 'mercator',
 		responsive: true,
 		scope: "world",
@@ -591,7 +590,7 @@ function createMap() {
 	}
 }
 
-createMap();
+createAttacksMap();
 
 function draw_bubble(country, radius) {
 	bubbles.push({
@@ -643,8 +642,8 @@ function load_country(country) {
 		attacks = json[country.toUpperCase()];
 		selectedCountry = country;
 		selectedData = attacks;
-		$('#container').empty();
-		createMap();
+		$('#attacks-container').empty();
+		createAttacksMap();
 	});
 }
 

@@ -103,6 +103,20 @@ def get_groups():
     l = sorted(l, key=lambda x: x[1], reverse=True)
     return l
 
+def get_origins():
+    d = {}
+    groups = data.groupby('country_code').groups
+    groups = {k:len(v) for (k,v) in groups.iteritems()}
+    d['all'] = groups;
+
+    for i in range(1994, 2016):
+        yr = data.loc[data['iyear']==i]
+        gs = yr.groupby('country_code').groups
+        gs = {k:len(v) for (k,v) in gs.iteritems()}
+        d[str(i)] = gs
+
+    return d
+
 def get_target_origin_data():
     combos = data.groupby(['country_txt','country_code']).size().reset_index().rename(columns={0:'count'})
     subset = combos[['country_txt', 'country_code', 'count']]
@@ -132,3 +146,6 @@ if __name__=="__main__":
     d = get_target_origin_data()
     print(d)
     save_data('js/attacks.json', d)
+    d = get_origins()
+    print(d)
+    save_data('js/origins.json', d)

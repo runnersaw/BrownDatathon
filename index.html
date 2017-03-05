@@ -23,6 +23,8 @@
   <script src="https://d3js.org/d3-array.v1.min.js"></script>
   <script src="https://d3js.org/d3-geo.v1.min.js"></script>
   <script src="https://d3js.org/topojson.v2.min.js"></script>
+  <link rel="stylesheet" href="./js/vendor/d3-slider-master/d3.slider.css">
+  <script src="./js/vendor/d3-slider-master/d3.slider.js"></script>
   <script src="js/datamaps.world.min.js"></script>
   <!--[if lt IE 9]>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script>
@@ -94,8 +96,19 @@
       <hr>
       <h3 id='vector-map'>Attack Origin Visualization</h3>
       <p>Below, you can see an interactive visualization demonstrating the origin of terror attacks for any targeted country. Click a country to see the countries that have targeted that country, and with what relative frequency. The thickness of the lines is proportional to the amount of the attacks on that country that the origin country makes up.</p>
-      <div id="container" style="position: relative; width: 100%; height: 80vh; margin: auto; margin-bottom: 40px;"></div>
-      <script src="js/main.js"></script>
+      <div id="attacks-container" style="position: relative; width: 100%; height: 80vh; margin: auto; margin-bottom: 40px;"></div>
+      <script src="js/attacks.js"></script>
+
+      <h3 id='vector-map'>Terrorist Group Activity Visualization</h3>
+      <p>Below, you can see an visualization demonstrating the location of terrorist group activity. The more red a country is, the more terrorist activity there is within that country. You can hover over a country to see how many terrorist attacks originated from that country. You can adjust the slider to see the change in terrorist activity over time.</p>
+      <div id="origins-container" style="position: relative; width: 100%; height: 80vh; margin: auto; margin-bottom: 40px;"></div>
+      <div id="slider" style="position: relative; width: 100%; margin-bottom: 60px;"></div>
+      <button onclick="originsButtonClicked()" id="years-button" style="position: relative; margin-bottom: 40px;">View individual years</button>
+      <script src="js/origins.js"></script>
+
+      <h3 id='vector-map'>Investigating the Recent Executive Order</h3>
+      <p>On January 27, 2017, President Trump signed Executive Order 13769 into law, restricting entry into the United States for citizens of seven countries. The order blocked entry to citizens from Iran, Iraq, Libya, Somalia, Sudan, Syria, and Yemen, in order to prevent terrorists from these countries from entering the US. We thought it would be interesting to analyze data about terrorism in these countries and examine whether this travel ban might have been effective at improving the security of American citizens, or whether, as commonly said by many opponents of the bill, the bill was discriminatory against Muslims.</p>
+      <p>Investigating the origin of terror attacks, we found that there was a surprising amount of statistical support for the travel ban. Iraq has the most terror attacks in the world in the past 20 years. Other countries blocked by the travel ban also experience large amounts of terrorist activity. However, some countries that were part of the travel ban weren't as bad as other countries left out in terms of the number of terror attacks carried out by people from those countries. For example, Saudi Arabia experiences a relatively high level of terror attacks, and yet was left out of the bill. You can see a visualization of the amount of terror attacks in the relevant countries below.</p>
     </div>
     <div class="col-sm-2 sidenav">
     </div>
