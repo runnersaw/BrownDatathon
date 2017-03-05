@@ -1,5 +1,5 @@
 
 import pandas as pd
 
-data = pd.read_csv('./files/gtd98_now.csv', dtype={'approxdate':str,'gsubname2':str,'gname3':str,'gsubname3':str,'divert':str,'kidhijcountry':str,'ransomnote':str})
+data = pd.read_excel('./files/gtd_94to15_country_code.xlsx')
 polity_data = pd.read_csv('./files/p4v2015.csv')
