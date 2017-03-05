@@ -2,8 +2,8 @@
 from geopy.geocoders import Nominatim
 from iso3166 import countries
 
-def country_number_to_code(number):
-    return countries.get(number).alpha3
+def get_country_code(country):
+    return countries.get(country).alpha3
 
 def get_group_location(d, group_name):
     group = d.loc[d['gname'] == group_name]
