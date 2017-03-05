@@ -11,7 +11,11 @@ def get_group_location(d, group_name):
 def get_country_from_location(lat, lon):
     geolocator = Nominatim()
     location = geolocator.reverse(str(lat)+', '+str(lon))
-    code = location.raw[u'address'][u'country_code'].encode('utf-8')
+    try:
+        code = location.raw[u'address'][u'country_code'].encode('utf-8')
+    except:
+        print('Failed to get address for '+str(lat)+','str(lon)+' with dict: '+location.raw)
+        return None
     if code == 'xk':
         return 'Kosovo'
     country = countries.get(code)
