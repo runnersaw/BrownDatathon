@@ -52,5 +52,7 @@ Below are two time lapses. The first visual highlights the seven banned countrie
 
 ![Image of Middle East](images/middleeast.gif)
 
+### Data Visualization
 
+We also created an interactive visualization where you can click on a country to see where terrorist attacks upon that country have originated from. [You can see the visualization here](http://sawyervaughan.com/BrownDatathon).
 
